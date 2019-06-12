@@ -1,3 +1,54 @@
+:root {
+  --blue: blue;
+  --yellow: yellow;
+  --green: green;
+  --red: red;
+}
+
 * {
-  background-color: aqua;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #faffd8;
+}
+
+.square {
+  width: 30%;
+  padding-bottom: 30%;
+  justify-content: center;
+  margin: 1.66%;
+  border-radius: 50%;
+  border: 1px solid;
+}
+
+.square.blue {
+  margin-right: 60px;
+  background-color: #2f6690;
+}
+
+.square.yellow {
+  background-color: #e0a458;
+}
+
+.square.green {
+  margin-right: 60px;
+  background-color: #149911;
+}
+
+.square.red {
+  background-color: #6b0f1a;
+}
+
+.container {
+  max-width: 60%;
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin-top: 70px;
+    max-width: 100%;
+    max-height: 600px;
+  }
 }

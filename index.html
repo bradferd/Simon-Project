@@ -11,7 +11,46 @@
 </head>
 
 <body>
-    <h1>Hello, world!</h1>
+    <nav class="navbar navbar-expand-md navbar-light">
+        <a class="navbar-brand" href="#">SIMON</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="btn btn-success mb-2 mr-2" href="#">New Game</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-danger" href="#">Reset</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="gameboard">
+        <div class="container">
+            <div class="col-lg">
+                <div class="row justify-content-center">
+                    <div class="square blue"></div>
+                    <div class="square red"></div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="text-center mt-10">
+                        <h4 class="display-4 game-counter">0</h4>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="square green"></div>
+                    <div class="square yellow"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+
+    </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
