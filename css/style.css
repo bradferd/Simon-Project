@@ -45,10 +45,33 @@ body {
   max-width: 60%;
 }
 
+.yellow.clicked {
+  background-color: yellow;
+}
+
+.green.clicked {
+  background-color: green;
+}
+
+.red.clicked {
+  background-color: red;
+}
+
+.blue.clicked {
+  background-color: blue;
+}
+
 @media (max-width: 768px) {
   .container {
     margin-top: 70px;
     max-width: 100%;
     max-height: 600px;
+  }
+}
+
+@media (max-width: 412px) {
+  .container {
+    margin-top: 100px;
+    max-height: 800px;
   }
 }
