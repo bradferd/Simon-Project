@@ -90,7 +90,7 @@ $(document).ready(function() {
     updateCounter(counter);
     computerMove();
   };
-
+  // Function to reset the game when the Reset button is pressed
   let clearGame = function() {
     $('.btn-success').removeClass('collapse');
     $('.btn-danger').addClass('collapse');
@@ -104,4 +104,11 @@ $(document).ready(function() {
   $('.btn-success').on('click', startGame);
 
   $('.btn-danger').on('click', clearGame);
+
+  function removeTransition(e) {
+    if (e.propertName !== 'transform') return;
+    this.classList.removed('clicked');
+  }
+
+  square.forEach( x => square.addEventListener('transitionend', removeTransition));
 });
