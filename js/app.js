@@ -22,10 +22,11 @@ $(document).ready(function() {
     if (
       playerTurn[playerTurn.length - 1] !== computerTurn[playerTurn.length - 1]
     ) {
-      $('.alert').alert('Wrong move! Try again.');
+      $('#wrongMove').show('fade');
       setTimeout(function() {
+        $('#wrongMove').hide('fade');
         showComputerMove(computerTurn);
-      }, 1000);
+      }, 3000);
     } else {
       console.log('😎');
       if (computerTurn.length === playerTurn.length) {
@@ -33,9 +34,13 @@ $(document).ready(function() {
           alert('😎 You win homie 😎');
           clearGame();
         }
-        setTimeout(() => alert('Nice moves!'), 200);
+        $('#goodMove').show('fade');
+      setTimeout(function() {
+        $('#goodMove').hide('fade');
         updateCounter();
         computerMove();
+      }, 3000);
+        
       }
     }
   }
