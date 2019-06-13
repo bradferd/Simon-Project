@@ -5,31 +5,10 @@ $(document).ready(function() {
   let counter = 0;
   let possibilities = ['#blue', '#red', '#green', '#yellow'];
 
-  $('.square.blue').on('click', () => {
-    $('.square.blue').addClass('clicked');
+  $('.square').on('click', e => {
+    $(e.target).addClass('clicked');
     setTimeout(function() {
-      $('.square.blue').removeClass('clicked');
-    }, 500);
-  });
-
-  $('.square.red').on('click', () => {
-    $('.square.red').addClass('clicked');
-    setTimeout(function() {
-      $('.square.red').removeClass('clicked');
-    }, 500);
-  });
-
-  $('.square.green').on('click', () => {
-    $('.square.green').addClass('clicked');
-    setTimeout(function() {
-      $('.square.green').removeClass('clicked');
-    }, 500);
-  });
-
-  $('.square.yellow').on('click', () => {
-    $('.square.yellow').addClass('clicked');
-    setTimeout(function() {
-      $('.square.yellow').removeClass('clicked');
+      $(e.target).removeClass('clicked');
     }, 500);
   });
 
