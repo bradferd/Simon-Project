@@ -1,12 +1,26 @@
 $(document).ready(function() {
-  let isPlayerTurn = false;
   let computerTurn = [];
   let playerTurn = [];
   let counter = 0;
   let possibilities = ['#blue', '#red', '#green', '#yellow'];
 
-  if (isPlayerTurn) {
-    $('.square').on('click', e => lightUp(e.target));
+  $('.square').on('click', e => {
+    lightUp(e.target);
+    addToPlayerTurn(e);
+  });
+
+  let addToPlayerTurn = function(e) {
+    playerTurn.push(`#${e.target.id}`);
+    console.log(playerTurn);
+    checkMatch();
+  };
+
+  function checkMatch() {
+    if (
+      playerTurn[playerTurn.length - 1] === computerTurn[playerTurn.length - 1]
+    ) {
+      console.log('Nice!');
+    }
   }
 
   let lightUp = function(square) {
@@ -17,8 +31,7 @@ $(document).ready(function() {
   };
 
   let playerMove = function() {
-    isPlayerTurn = true;
-    alert('Your move!');
+    playerTurn = [];
   };
 
   let updateCounter = function(counter) {
@@ -35,9 +48,7 @@ $(document).ready(function() {
         clearInterval(interval);
       }
     }, 600);
-    setTimeout(function() {
-      playerMove();
-    }, 5000);
+    playerMove();
   };
 
   let computerMove = function() {
