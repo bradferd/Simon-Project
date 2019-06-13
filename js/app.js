@@ -22,13 +22,18 @@ $(document).ready(function() {
     if (
       playerTurn[playerTurn.length - 1] !== computerTurn[playerTurn.length - 1]
     ) {
-      alert('Wrong move! Try again.');
+      $('.alert').alert('Wrong move! Try again.');
       setTimeout(function() {
         showComputerMove(computerTurn);
       }, 1000);
     } else {
       console.log('😎');
       if (computerTurn.length === playerTurn.length) {
+        if (counter === 10) {
+          alert('😎 You win homie 😎');
+          clearGame();
+        }
+        setTimeout(() => alert('Nice moves!'), 200);
         updateCounter();
         computerMove();
       }
@@ -79,6 +84,15 @@ $(document).ready(function() {
     computerMove();
   };
 
+  let clearGame = function() {
+    counter = 0;
+    $('h4.game-counter').text(`${counter}`);
+    playerClear();
+    computerTurn = [];
+  };
+
   // Event listener to start the game with the start button
   $('.btn-success').on('click', startGame);
+
+  $('.btn-danger').on('click', clearGame);
 });
