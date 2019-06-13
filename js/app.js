@@ -31,7 +31,7 @@ $(document).ready(function() {
       console.log('😎');
       if (computerTurn.length === playerTurn.length) {
         if (counter === 10) {
-          alert('😎 You win homie 😎');
+          $('#winner').show('fade');
           clearGame();
         }
         $('#goodMove').show('fade');
@@ -84,12 +84,16 @@ $(document).ready(function() {
 
   // Function to initialize the game when start is pressed
   let startGame = function() {
+    $('.btn-success').addClass('collapse');
+    $('.btn-danger').removeClass('collapse');
     counter = 0;
     updateCounter(counter);
     computerMove();
   };
 
   let clearGame = function() {
+    $('.btn-success').removeClass('collapse');
+    $('.btn-danger').addClass('collapse');
     counter = 0;
     $('h4.game-counter').text(`${counter}`);
     playerClear();

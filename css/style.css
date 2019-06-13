@@ -4,12 +4,18 @@
 }
 
 body {
-  background-color: #faffd8;
+  background-color: #111;
   font-family: 'Righteous', cursive;
 }
 
 .jumbotron {
-  padding: 10px 0px 10px 0px;
+  padding: 10px 32px 10px 32px;
+  background-color: #111;
+  color: #eee;
+}
+
+.alerts {
+  margin: 10px 0px 10px 0px;
 }
 
 .square {
@@ -59,6 +65,10 @@ body {
   background-color: blue;
 }
 
+.game-counter {
+  color: #eee
+}
+
 @media (max-width: 768px) {
   .container {
     margin-top: 70px;
@@ -67,9 +77,9 @@ body {
   }
 }
 
-@media (max-width: 412px) {
+/* @media (max-width: 412px) {
   .container {
     margin-top: 100px;
     max-height: 800px;
   }
-}
+} */
