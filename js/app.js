@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  let isPlayerTurn = false;
+
   console.log('ready!');
   $('.square.blue').on('click', () => {
     $('.square.blue').addClass('clicked');
