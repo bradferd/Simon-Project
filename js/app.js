@@ -17,9 +17,18 @@ $(document).ready(function() {
 
   function checkMatch() {
     if (
-      playerTurn[playerTurn.length - 1] === computerTurn[playerTurn.length - 1]
+      playerTurn[playerTurn.length - 1] !== computerTurn[playerTurn.length - 1]
     ) {
-      console.log('Nice!');
+      alert('Wrong move! Try again.');
+      setTimeout(function() {
+        showComputerMove(computerTurn);
+      }, 1000);
+    } else {
+      console.log('😎');
+      if (computerTurn.length === playerTurn.length) {
+        updateCounter();
+        computerMove();
+      }
     }
   }
 
@@ -30,11 +39,9 @@ $(document).ready(function() {
     }, 500);
   };
 
-  let playerMove = function() {
-    playerTurn = [];
-  };
+  let playerClear = () => (playerTurn = []);
 
-  let updateCounter = function(counter) {
+  let updateCounter = function() {
     counter++;
     $('h4.game-counter').text(`${counter}`);
   };
@@ -48,7 +55,7 @@ $(document).ready(function() {
         clearInterval(interval);
       }
     }, 600);
-    playerMove();
+    playerClear();
   };
 
   let computerMove = function() {
