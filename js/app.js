@@ -35,6 +35,10 @@ $(document).ready(function() {
 
   let lightUp = function(square) {
     console.log(square);
+    $(square).addClass('clicked');
+    setTimeout(function() {
+      $(square).removeClass('clicked');
+    }, 500);
   };
 
   let updateCounter = function(counter) {
