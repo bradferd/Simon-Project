@@ -5,19 +5,20 @@ $(document).ready(function() {
   let counter = 0;
   let possibilities = ['#blue', '#red', '#green', '#yellow'];
 
-  $('.square').on('click', e => {
-    $(e.target).addClass('clicked');
-    setTimeout(function() {
-      $(e.target).removeClass('clicked');
-    }, 500);
-  });
+  if (isPlayerTurn) {
+    $('.square').on('click', e => lightUp(e.target));
+  }
 
   let lightUp = function(square) {
-    console.log(square);
     $(square).addClass('clicked');
     setTimeout(function() {
       $(square).removeClass('clicked');
     }, 500);
+  };
+
+  let playerMove = function() {
+    isPlayerTurn = true;
+    alert('Your move!');
   };
 
   let updateCounter = function(counter) {
@@ -34,16 +35,17 @@ $(document).ready(function() {
         clearInterval(interval);
       }
     }, 600);
+    setTimeout(function() {
+      playerMove();
+    }, 5000);
   };
 
   let computerMove = function() {
     computerTurn.push(possibilities[Math.floor(Math.random() * 4)]);
-    console.log(computerTurn);
     showComputerMove(computerTurn);
   };
 
   let startGame = function() {
-    console.log('hello from Start Game');
     counter = 0;
     updateCounter(counter);
     computerMove();
