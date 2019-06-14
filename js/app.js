@@ -6,14 +6,14 @@ $(document).ready(function() {
 
   // Event listener for the gameboard items
   $('.square').on('click', e => {
-    lightUp(e.target);
+    animate(e.target);
     addToPlayerTurn(e);
   });
 
   // Function to add a clicked item to a variable for the players turn
   let addToPlayerTurn = function(e) {
     playerTurn.push(`#${e.target.id}`);
-    console.log(playerTurn);
+    // console.log(playerTurn);
     checkMatch();
   };
 
@@ -28,7 +28,7 @@ $(document).ready(function() {
         showComputerMove(computerTurn);
       }, 3000);
     } else {
-      console.log('😎');
+      // console.log('😎');
       if (computerTurn.length === playerTurn.length) {
         if (counter === 10) {
           $('#winner').show('fade');
@@ -45,7 +45,7 @@ $(document).ready(function() {
   }
 
   // Function to light up the clickable areas on the gameboard
-  let lightUp = function(square) {
+  let animate = function(square) {
     $(square).addClass('clicked');
     setTimeout(function() {
       $(square).removeClass('clicked');
@@ -63,12 +63,12 @@ $(document).ready(function() {
   };
 
   // Function used to show the Computer's turn
-  let showComputerMove = function(sequence) {
+  let showComputerMove = function(computerTurn) {
     var i = 0;
     var interval = setInterval(function() {
-      lightUp(sequence[i]);
+      animate(computerTurn[i]);
       i++;
-      if (i >= sequence.length) {
+      if (i >= computerTurn.length) {
         clearInterval(interval);
       }
     }, 600);
