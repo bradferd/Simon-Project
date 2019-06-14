@@ -8,6 +8,7 @@ $(document).ready(function() {
   $('.square').on('click', e => {
     animate(e.target);
     addToPlayerTurn(e);
+    playSound(`#${e.target.id}`);
   });
 
   // Function to add a clicked item to a variable for the players turn
@@ -52,6 +53,11 @@ $(document).ready(function() {
     }, 500);
   };
 
+  let playSound = function(color) {
+    let sound = document.querySelector(`audio[data-color="${color}"]`);
+    sound.play();
+  };
+
   // Function to clear the player turn array whenever a new turn is started or the player makes
   // a wrong move
   let playerClear = () => (playerTurn = []);
@@ -67,6 +73,7 @@ $(document).ready(function() {
     var i = 0;
     var interval = setInterval(function() {
       animate(computerTurn[i]);
+      playSound(computerTurn[i]);
       i++;
       if (i >= computerTurn.length) {
         clearInterval(interval);
