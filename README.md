@@ -1,19 +1,37 @@
 # Simon-Project
 
-a version of the classic Simon game using HTML, CSS and Javascript
+## Overview
 
-Project Trello Board:
-https://trello.com/b/nLV9SEfR/simon
+For Project 1, I made a clone of the classic Simon Game.
 
-Minimum Viable Product
+Upon landing on the page, the player sees a button to start the game. Once pressed, the computer automatically starts their turn. The sequence will start at 1 and progress gradually as the player repeats the sequence.
+Upon reaching a sequence of ten, the game is finished and the player wins.
 
-- User must be able to start the game.
-- User must see a board with four clickable areas
-- User sees computer play a sequence on clickable areas
-- Clickable areas light up and play a sound upon interaction from user or computer
-- User must be able to repeat sequence after computer
-- If sequences match, sequence must increase by one
-- If unable to match, user score is the length of the sequence
-- User wins if the length of the sequence is > 10
+## Technologies Used
 
-!(Image of Wireframe)[/Users/bradfordbailey/Desktop/ga-sei/Simon-Project/images/IMG_2045.jpg]
+- Languages - HTML, CSS, Javascript, JQuery.
+- Design - Bootstrap, Google Fonts
+- Project Planning - Trello
+- Text Editor - Visual Studio Code
+
+## Features
+
+- Bootstrap, for awesome styling and minimal CSS
+- Sequence Counter
+- Start Game button
+- Reset Game button
+- Animations and sounds for clickable game board items
+
+## Links
+
+- Project Trello Board:
+  https://trello.com/b/nLV9SEfR/simon
+
+- Project Hosted Address:
+  https://gallant-ride-6ed394.netlify.com
+
+WireFrame:
+![alt text](./images/IMG_2045.jpg 'Image of Wireframe')
+
+Whiteboarding:
+![alt text](images/IMG_2046.jpg 'Logo Title Text 1')
