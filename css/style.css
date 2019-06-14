@@ -14,7 +14,6 @@ body {
   padding-bottom: 30%;
   justify-content: center;
   border-radius: 50%;
-  border: 1px solid;
 }
 
 .square.blue {
@@ -36,7 +35,7 @@ body {
 }
 
 .container {
-  max-width: 60%;
+  max-width: 50%;
 }
 
 .clicked {

@@ -32,6 +32,7 @@ $(document).ready(function() {
         if (counter === 10) {
           $('#winner').show('fade');
           clearGame();
+          return;
         }
         $('#goodMove').show('fade');
         setTimeout(function() {
