@@ -20,8 +20,14 @@
     </div>
     <div class="gameboard mb-20">
         <div class="container justify-content-center">
+            <div class="alert alert-danger text-center collapse" id="wrongMove">
+                Wrong Move! Try again!
+            </div>
+            <div class="alert alert-success text-center collapse" id="goodMove">
+                Nice Moves! Next Level!
+            </div>
             <div class="alert alert-success text-center collapse" id="winner">
-                😎 You win homie 😎
+                😎 You win!!! 😎
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -40,12 +46,6 @@
                     <div class="square green" id="green"></div>
                     <div class="square yellow" id="yellow"></div>
                 </div>
-            </div>
-            <div class="alert alert-danger text-center collapse" id="wrongMove">
-                Wrong Move! Try again!
-            </div>
-            <div class="alert alert-success text-center collapse" id="goodMove">
-                Nice Moves! Next Level!
             </div>
         </div>
     </div>

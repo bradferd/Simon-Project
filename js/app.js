@@ -35,12 +35,11 @@ $(document).ready(function() {
           clearGame();
         }
         $('#goodMove').show('fade');
-      setTimeout(function() {
-        $('#goodMove').hide('fade');
-        updateCounter();
-        computerMove();
-      }, 3000);
-        
+        setTimeout(function() {
+          $('#goodMove').hide('fade');
+          updateCounter();
+          computerMove();
+        }, 3000);
       }
     }
   }
@@ -103,12 +102,6 @@ $(document).ready(function() {
   // Event listener to start the game with the start button
   $('.btn-success').on('click', startGame);
 
+  // Event listener for the reset button
   $('.btn-danger').on('click', clearGame);
-
-  function removeTransition(e) {
-    if (e.propertName !== 'transform') return;
-    this.classList.removed('clicked');
-  }
-
-  square.forEach( x => square.addEventListener('transitionend', removeTransition));
 });
