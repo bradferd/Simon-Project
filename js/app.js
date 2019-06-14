@@ -14,7 +14,6 @@ $(document).ready(function() {
   // Function to add a clicked item to a variable for the players turn
   let addToPlayerTurn = function(e) {
     playerTurn.push(`#${e.target.id}`);
-    // console.log(playerTurn);
     checkMatch();
   };
 
@@ -29,7 +28,6 @@ $(document).ready(function() {
         showComputerMove(computerTurn);
       }, 3000);
     } else {
-      // console.log('😎');
       if (computerTurn.length === playerTurn.length) {
         if (counter === 10) {
           $('#winner').show('fade');
@@ -70,8 +68,8 @@ $(document).ready(function() {
 
   // Function used to show the Computer's turn
   let showComputerMove = function(computerTurn) {
-    var i = 0;
-    var interval = setInterval(function() {
+    let i = 0;
+    let interval = setInterval(() => {
       animate(computerTurn[i]);
       playSound(computerTurn[i]);
       i++;
