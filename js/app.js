@@ -12,10 +12,10 @@ $(document).ready(function() {
   });
 
   // Function to add a clicked item to a variable for the players turn
-  let addToPlayerTurn = function(e) {
+  function addToPlayerTurn(e) {
     playerTurn.push(`#${e.target.id}`);
     checkMatch();
-  };
+  }
 
   // Function to check a player's turn against the computer's
   function checkMatch() {
@@ -44,17 +44,18 @@ $(document).ready(function() {
   }
 
   // Function to light up the clickable areas on the gameboard
-  let animate = function(square) {
+  function animate(square) {
     $(square).addClass('clicked');
     setTimeout(function() {
       $(square).removeClass('clicked');
     }, 500);
-  };
+  }
 
-  let playSound = function(color) {
+  // Function used to pull a sound from the HTML and play it
+  function playSound(color) {
     let sound = document.querySelector(`audio[data-color="${color}"]`);
     sound.play();
-  };
+  }
 
   // Function to clear the player turn array whenever a new turn is started or the player makes
   // a wrong move
@@ -70,13 +71,13 @@ $(document).ready(function() {
   let showComputerMove = function(computerTurn) {
     let i = 0;
     let interval = setInterval(() => {
-      animate(computerTurn[i]);
       playSound(computerTurn[i]);
+      animate(computerTurn[i]);
       i++;
       if (i >= computerTurn.length) {
         clearInterval(interval);
       }
-    }, 600);
+    }, 700);
     playerClear();
   };
 
@@ -94,14 +95,15 @@ $(document).ready(function() {
     updateCounter(counter);
     computerMove();
   };
+
   // Function to reset the game when the Reset button is pressed
   let clearGame = function() {
+    counter = 0;
+    computerTurn = [];
+    playerClear();
     $('.btn-success').removeClass('collapse');
     $('.btn-danger').addClass('collapse');
-    counter = 0;
     $('h4.game-counter').text(`${counter}`);
-    playerClear();
-    computerTurn = [];
   };
 
   // Event listener to start the game with the start button
