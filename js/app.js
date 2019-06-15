@@ -55,6 +55,7 @@ $(document).ready(function() {
   // Function used to pull a sound from the HTML and play it
   function playSound(color) {
     let sound = document.querySelector(`audio[data-color="${color}"]`);
+    // console.log(color);
     sound.play();
   }
 
@@ -92,7 +93,7 @@ $(document).ready(function() {
   let startGame = function() {
     $('.btn-success').addClass('collapse');
     $('.btn-danger').removeClass('collapse');
-    counter = 0;
+    // counter = 0;
     updateCounter(counter);
     computerMove();
   };
