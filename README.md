@@ -21,6 +21,7 @@ Upon reaching a sequence of ten, the game is finished and the player wins.
 - Start Game button
 - Reset Game button
 - Animations and sounds for clickable game board items
+- Sounds came from FreeCodeCamp.org
 
 ## Links
 
