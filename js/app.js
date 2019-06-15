@@ -29,18 +29,23 @@ $(document).ready(function() {
       }, 3000);
     } else {
       if (computerTurn.length === playerTurn.length) {
-        if (counter === 10) {
-          $('#winner').show('fade');
-          clearGame();
-          return;
+        if (!checkWinCondition()) {
+          $('#goodMove').show('fade');
+          setTimeout(function() {
+            $('#goodMove').hide('fade');
+            updateCounter();
+            computerMove();
+          }, 3000);
         }
-        $('#goodMove').show('fade');
-        setTimeout(function() {
-          $('#goodMove').hide('fade');
-          updateCounter();
-          computerMove();
-        }, 3000);
       }
+    }
+  }
+
+  function checkWinCondition() {
+    if (counter === 3) {
+      $('#winner').show('fade');
+      clearGame();
+      return true;
     }
   }
 
