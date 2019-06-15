@@ -64,13 +64,13 @@ $(document).ready(function() {
   let playerClear = () => (playerTurn = []);
 
   // Function used to show the length of the player's current sequence
-  let updateCounter = function() {
+  function updateCounter() {
     counter++;
     $('h4.game-counter').text(`${counter}`);
-  };
+  }
 
   // Function used to show the Computer's turn
-  let showComputerMove = function(computerTurn) {
+  function showComputerMove(computerTurn) {
     let i = 0;
     let interval = setInterval(() => {
       playSound(computerTurn[i]);
@@ -81,32 +81,40 @@ $(document).ready(function() {
       }
     }, 700);
     playerClear();
-  };
+  }
 
   // Function used to find a random option and add it to the computers turn sequence
-  let computerMove = function() {
+  function computerMove() {
     computerTurn.push(possibilities[Math.floor(Math.random() * 4)]);
     showComputerMove(computerTurn);
-  };
+  }
 
   // Function to initialize the game when start is pressed
-  let startGame = function() {
-    $('.btn-success').addClass('collapse');
-    $('.btn-danger').removeClass('collapse');
-    // counter = 0;
+  function startGame() {
+    buttonSwap();
     updateCounter(counter);
     computerMove();
-  };
+  }
 
   // Function to reset the game when the Reset button is pressed
-  let clearGame = function() {
+  function clearGame() {
     counter = 0;
     computerTurn = [];
     playerClear();
-    $('.btn-success').removeClass('collapse');
-    $('.btn-danger').addClass('collapse');
+    buttonSwap();
     $('h4.game-counter').text(`${counter}`);
-  };
+  }
+
+  // function to collapse buttons when starting or resting a game
+  function buttonSwap() {
+    if ($('.btn-success').hasClass('collapse')) {
+      $('.btn-success').removeClass('collapse');
+      $('.btn-danger').addClass('collapse');
+    } else {
+      $('.btn-success').addClass('collapse');
+      $('.btn-danger').removeClass('collapse');
+    }
+  }
 
   // Event listener to start the game with the start button
   $('.btn-success').on('click', startGame);
