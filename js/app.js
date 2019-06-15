@@ -22,27 +22,38 @@ $(document).ready(function() {
     if (
       playerTurn[playerTurn.length - 1] !== computerTurn[playerTurn.length - 1]
     ) {
-      $('#wrongMove').show('fade');
-      setTimeout(function() {
-        $('#wrongMove').hide('fade');
-        showComputerMove(computerTurn);
-      }, 3000);
+      wrongMoveAlert();
     } else {
       if (computerTurn.length === playerTurn.length) {
         if (!checkWinCondition()) {
-          $('#goodMove').show('fade');
-          setTimeout(function() {
-            $('#goodMove').hide('fade');
-            updateCounter();
-            computerMove();
-          }, 3000);
+          goodMoveAlert();
         }
       }
     }
   }
 
+  // Function to show alert for a correct move
+  function goodMoveAlert() {
+    $('#goodMove').show('fade');
+    setTimeout(function() {
+      $('#goodMove').hide('fade');
+      updateCounter();
+      computerMove();
+    }, 3000);
+  }
+
+  // Function to show alert for a wrong move
+  function wrongMoveAlert() {
+    $('#wrongMove').show('fade');
+    setTimeout(function() {
+      $('#wrongMove').hide('fade');
+      showComputerMove(computerTurn);
+    }, 3000);
+  }
+
+  // Function to check for a win condition
   function checkWinCondition() {
-    if (counter === 3) {
+    if (counter === 10) {
       $('#winner').show('fade');
       clearGame();
       return true;
