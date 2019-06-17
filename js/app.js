@@ -3,12 +3,16 @@ $(document).ready(function() {
   let playerTurn = [];
   let counter = 0;
   let possibilities = ['#blue', '#red', '#green', '#yellow'];
+  let isPlayerTurn = false;
 
   // Event listener for the gameboard items
+
   $('.square').on('click', e => {
-    animate(e.target);
-    addToPlayerTurn(e);
-    playSound(`#${e.target.id}`);
+    if (isPlayerTurn) {
+      animate(e.target);
+      addToPlayerTurn(e);
+      playSound(`#${e.target.id}`);
+    }
   });
 
   // Function to add a clicked item to a variable for the players turn
@@ -94,9 +98,17 @@ $(document).ready(function() {
       i++;
       if (i >= computerTurn.length) {
         clearInterval(interval);
+        console.log(isPlayerTurn);
+        switchPlayerTurn();
+        console.log(isPlayerTurn);
       }
     }, 700);
     playerClear();
+  }
+
+  function switchPlayerTurn() {
+    isPlayerTurn ? (isPlayerTurn = false) : (isPlayerTurn = true);
+    console.log(isPlayerTurn);
   }
 
   // Function used to find a random option and add it to the computers turn sequence
