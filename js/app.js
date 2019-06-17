@@ -26,6 +26,7 @@ $(document).ready(function() {
     if (
       playerTurn[playerTurn.length - 1] !== computerTurn[playerTurn.length - 1]
     ) {
+      switchPlayerTurn();
       wrongMoveAlert();
     } else {
       if (computerTurn.length === playerTurn.length) {
