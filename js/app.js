@@ -125,7 +125,7 @@ $(document).ready(function() {
   // Function to switch flag for Player Turn
   function switchPlayerTurn() {
     isPlayerTurn ? (isPlayerTurn = false) : (isPlayerTurn = true);
-    console.log(isPlayerTurn);
+    // console.log(isPlayerTurn);
   }
 
   // Function used to find a random option and add it to the computers turn sequence
