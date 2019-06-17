@@ -30,6 +30,7 @@ $(document).ready(function() {
     } else {
       if (computerTurn.length === playerTurn.length) {
         if (!checkWinCondition()) {
+          switchPlayerTurn();
           goodMoveAlert();
         }
       }
