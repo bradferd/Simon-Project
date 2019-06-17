@@ -24,21 +24,27 @@ $(document).ready(function() {
 
   // Function to check a player's turn against the computer's
   function checkMatch() {
-    if (
-      playerTurn[playerTurn.length - 1] !== computerTurn[playerTurn.length - 1]
-    ) {
-      playSound('#wrong');
-      switchPlayerTurn();
-      if (!checkLoseCondition()) {
-        wrongMoveAlert();
-      }
-    } else {
-      playSound(`${playerTurn[playerTurn.length - 1]}`);
-      if (computerTurn.length === playerTurn.length) {
-        if (!checkWinCondition()) {
-          switchPlayerTurn();
-          goodMoveAlert();
-        }
+    playerTurn[playerTurn.length - 1] !== computerTurn[playerTurn.length - 1]
+      ? wrongMove()
+      : goodMove();
+  }
+
+  // Function to show alert and play sound when a wrong move is made
+  function wrongMove() {
+    playSound('#wrong');
+    switchPlayerTurn();
+    if (!checkLoseCondition()) {
+      wrongMoveAlert();
+    }
+  }
+
+  // Function to show alert and play sound when a good move is made
+  function goodMove() {
+    playSound(`${playerTurn[playerTurn.length - 1]}`);
+    if (computerTurn.length === playerTurn.length) {
+      if (!checkWinCondition()) {
+        switchPlayerTurn();
+        goodMoveAlert();
       }
     }
   }
@@ -143,13 +149,17 @@ $(document).ready(function() {
 
   // Function to reset the game when the Reset button is pressed
   function clearGame() {
+    clearVariables();
+    playerClear();
+    buttonSwap();
+    $('h4.game-counter').text(`${counter}`);
+  }
+
+  function clearVariables() {
     counter = 0;
     computerTurn = [];
     isPlayerTurn = false;
     wrongMoveCount = 0;
-    playerClear();
-    buttonSwap();
-    $('h4.game-counter').text(`${counter}`);
   }
 
   // function to collapse buttons when starting or resting a game
