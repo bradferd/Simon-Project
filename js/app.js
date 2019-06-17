@@ -4,6 +4,7 @@ $(document).ready(function() {
   let counter = 0;
   let possibilities = ['#blue', '#red', '#green', '#yellow'];
   let isPlayerTurn = false;
+  let wrongMoveCount = 0;
 
   // Event listener for the gameboard items
 
@@ -27,7 +28,9 @@ $(document).ready(function() {
       playerTurn[playerTurn.length - 1] !== computerTurn[playerTurn.length - 1]
     ) {
       switchPlayerTurn();
-      wrongMoveAlert();
+      if (!checkLoseCondition()) {
+        wrongMoveAlert();
+      }
     } else {
       if (computerTurn.length === playerTurn.length) {
         if (!checkWinCondition()) {
@@ -61,6 +64,16 @@ $(document).ready(function() {
   function checkWinCondition() {
     if (counter === 10) {
       $('#winner').show('fade');
+      clearGame();
+      return true;
+    }
+  }
+
+  function checkLoseCondition() {
+    wrongMoveCount++;
+    console.log(wrongMoveCount);
+    if (wrongMoveCount === 3) {
+      console.log('You Lose.');
       clearGame();
       return true;
     }
@@ -100,7 +113,6 @@ $(document).ready(function() {
       i++;
       if (i >= computerTurn.length) {
         clearInterval(interval);
-        console.log(isPlayerTurn);
         switchPlayerTurn();
         console.log(isPlayerTurn);
       }
@@ -108,6 +120,7 @@ $(document).ready(function() {
     playerClear();
   }
 
+  // Function to switch flag for Player Turn
   function switchPlayerTurn() {
     isPlayerTurn ? (isPlayerTurn = false) : (isPlayerTurn = true);
     console.log(isPlayerTurn);
