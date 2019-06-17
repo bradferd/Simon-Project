@@ -12,7 +12,7 @@ $(document).ready(function() {
     if (isPlayerTurn) {
       animate(e.target);
       addToPlayerTurn(e);
-      playSound(`#${e.target.id}`);
+      // playSound(`#${e.target.id}`);
     }
   });
 
@@ -27,11 +27,13 @@ $(document).ready(function() {
     if (
       playerTurn[playerTurn.length - 1] !== computerTurn[playerTurn.length - 1]
     ) {
+      playSound('#wrong');
       switchPlayerTurn();
       if (!checkLoseCondition()) {
         wrongMoveAlert();
       }
     } else {
+      playSound(`${playerTurn[playerTurn.length - 1]}`);
       if (computerTurn.length === playerTurn.length) {
         if (!checkWinCondition()) {
           switchPlayerTurn();
@@ -73,7 +75,7 @@ $(document).ready(function() {
     wrongMoveCount++;
     console.log(wrongMoveCount);
     if (wrongMoveCount === 3) {
-      console.log('You Lose.');
+      $('#loser').show('fade');
       clearGame();
       return true;
     }
@@ -143,6 +145,8 @@ $(document).ready(function() {
   function clearGame() {
     counter = 0;
     computerTurn = [];
+    isPlayerTurn = false;
+    wrongMoveCount = 0;
     playerClear();
     buttonSwap();
     $('h4.game-counter').text(`${counter}`);
