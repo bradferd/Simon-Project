@@ -76,6 +76,7 @@ $(document).ready(function () {
     }
   }
 
+  // Function used to check losing condition
   function checkLoseCondition() {
     wrongMoveCount++;
     if (wrongMoveCount === 3) {
@@ -150,6 +151,7 @@ $(document).ready(function () {
     $('h4.game-counter').text(`${counter}`);
   }
 
+  // Function used to clear all variables to reset game
   function clearVariables() {
     counter = 0;
     computerTurn = [];
