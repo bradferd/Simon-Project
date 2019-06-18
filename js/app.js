@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   let computerTurn = [];
   let playerTurn = [];
   let counter = 0;
@@ -12,15 +12,14 @@ $(document).ready(function() {
     if (isPlayerTurn) {
       animate(e.target);
       addToPlayerTurn(e);
-      // playSound(`#${e.target.id}`);
     }
   });
 
   // Function to add a clicked item to a variable for the players turn
-  function addToPlayerTurn(e) {
+  let addToPlayerTurn = e => {
     playerTurn.push(`#${e.target.id}`);
     checkMatch();
-  }
+  };
 
   // Function to check a player's turn against the computer's
   function checkMatch() {
@@ -52,7 +51,7 @@ $(document).ready(function() {
   // Function to show alert for a correct move
   function goodMoveAlert() {
     $('#goodMove').show('fade');
-    setTimeout(function() {
+    setTimeout(function () {
       $('#goodMove').hide('fade');
       updateCounter();
       computerMove();
@@ -62,7 +61,7 @@ $(document).ready(function() {
   // Function to show alert for a wrong move
   function wrongMoveAlert() {
     $('#wrongMove').show('fade');
-    setTimeout(function() {
+    setTimeout(function () {
       $('#wrongMove').hide('fade');
       showComputerMove(computerTurn);
     }, 3000);
@@ -79,7 +78,6 @@ $(document).ready(function() {
 
   function checkLoseCondition() {
     wrongMoveCount++;
-    console.log(wrongMoveCount);
     if (wrongMoveCount === 3) {
       $('#loser').show('fade');
       clearGame();
@@ -90,7 +88,7 @@ $(document).ready(function() {
   // Function to light up the clickable areas on the gameboard
   function animate(square) {
     $(square).addClass('clicked');
-    setTimeout(function() {
+    setTimeout(function () {
       $(square).removeClass('clicked');
     }, 500);
   }
@@ -98,7 +96,6 @@ $(document).ready(function() {
   // Function used to pull a sound from the HTML and play it
   function playSound(color) {
     let sound = document.querySelector(`audio[data-color="${color}"]`);
-    // console.log(color);
     sound.play();
   }
 
@@ -122,7 +119,6 @@ $(document).ready(function() {
       if (i >= computerTurn.length) {
         clearInterval(interval);
         switchPlayerTurn();
-        console.log(isPlayerTurn);
       }
     }, 700);
     playerClear();
@@ -131,7 +127,6 @@ $(document).ready(function() {
   // Function to switch flag for Player Turn
   function switchPlayerTurn() {
     isPlayerTurn ? (isPlayerTurn = false) : (isPlayerTurn = true);
-    // console.log(isPlayerTurn);
   }
 
   // Function used to find a random option and add it to the computers turn sequence
